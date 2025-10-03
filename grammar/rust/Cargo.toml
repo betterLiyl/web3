@@ -9,3 +9,11 @@ rand = "0.8"
 [[bin]]
 name = "2_guessing_game"
 path = "src/2_guessing_game.rs"
+
+[[bin]]
+name = "3_basic"
+path = "src/3_basic.rs"
+
+[[bin]]
+name = "4_references"
+path = "src/4_references.rs"
