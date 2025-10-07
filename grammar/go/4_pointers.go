@@ -6,41 +6,41 @@ import (
 )
 
 // 定义结构体用于演示
-type Person struct {
+type PointerPerson struct {
 	Name string
 	Age  int
 }
 
 // 结构体方法 - 值接收者
-func (p Person) GetInfo() string {
+func (p PointerPerson) GetInfo() string {
 	return fmt.Sprintf("姓名: %s, 年龄: %d", p.Name, p.Age)
 }
 
 // 结构体方法 - 指针接收者
-func (p *Person) SetAge(age int) {
+func (p *PointerPerson) SetAge(age int) {
 	p.Age = age
 }
 
-func (p *Person) Birthday() {
+func (p *PointerPerson) Birthday() {
 	p.Age++
 }
 
 // 函数参数 - 值传递
-func updatePersonByValue(p Person, newAge int) {
+func updatePersonByValue(p PointerPerson, newAge int) {
 	p.Age = newAge
 	fmt.Printf("函数内部 (值传递): %s\n", p.GetInfo())
 }
 
 // 函数参数 - 指针传递
-func updatePersonByPointer(p *Person, newAge int) {
+func updatePersonByPointer(p *PointerPerson, newAge int) {
 	p.Age = newAge
 	fmt.Printf("函数内部 (指针传递): %s\n", p.GetInfo())
 }
 
 // 返回指针的函数
-func createPerson(name string, age int) *Person {
+func createPerson(name string, age int) *PointerPerson {
 	// 局部变量的地址可以安全返回，Go 会自动处理内存分配
-	person := Person{Name: name, Age: age}
+	person := PointerPerson{Name: name, Age: age}
 	return &person
 }
 
@@ -120,7 +120,7 @@ func pointerArithmeticDemo() {
 	fmt.Printf("指针 ptr 的值 (x的地址): %p\n", ptr)
 	fmt.Printf("指针 ptr 指向的值: %d\n", *ptr)
 	fmt.Printf("指针 ptr 自身的地址: %p\n", &ptr)
-	fmt.Printf("指针 ptr引用 指向的: %p\n", *&ptr)// 指针 ptr 引用的是指针 ptr 指向的地址，而不是指针 ptr 自身的地址
+	fmt.Printf("指针 ptr引用 指向的: %p\n", *&ptr) // 指针 ptr 引用的是指针 ptr 指向的地址，而不是指针 ptr 自身的地址
 
 	// 指针的大小
 	fmt.Printf("指针的大小: %d 字节\n", unsafe.Sizeof(ptr))
@@ -194,43 +194,43 @@ func functionPointerDemo() {
 }
 
 // 指针和接口
-type Shape interface {
+type PointerShape interface {
 	Area() float64
 	Perimeter() float64
 }
 
-type Rectangle struct {
+type PointerRectangle struct {
 	Width  float64
 	Height float64
 }
 
-func (r Rectangle) Area() float64 {
+func (r PointerRectangle) Area() float64 {
 	return r.Width * r.Height
 }
 
-func (r Rectangle) Perimeter() float64 {
+func (r PointerRectangle) Perimeter() float64 {
 	return 2 * (r.Width + r.Height)
 }
 
 func interfacePointerDemo() {
 	fmt.Println("\n=== 接口和指针演示 ===")
 
-	rect := Rectangle{Width: 5.0, Height: 3.0}
+	rect := PointerRectangle{Width: 5.0, Height: 3.0}
 
 	// 值类型实现接口
-	var shape1 Shape = rect
+	var shape1 PointerShape = rect
 	fmt.Printf("矩形面积 (值类型): %.2f\n", shape1.Area())
 
 	// 指针类型实现接口
-	var shape2 Shape = &rect
+	var shape2 PointerShape = &rect
 	fmt.Printf("矩形周长 (指针类型): %.2f\n", shape2.Perimeter())
 
 	// 接口指针
-	var shapePtr *Shape = &shape1
+	var shapePtr *PointerShape = &shape1
 	fmt.Printf("通过接口指针访问面积: %.2f\n", (*shapePtr).Area())
 }
 
-func main() {
+func main4() {
 	fmt.Println("=== Go 语言指针和引用学习 ===")
 
 	// 1. 基本指针操作
@@ -249,7 +249,7 @@ func main() {
 
 	// 2. 结构体指针
 	fmt.Println("\n=== 结构体指针演示 ===")
-	person := Person{Name: "张三", Age: 25}
+	person := PointerPerson{Name: "张三", Age: 25}
 	fmt.Printf("原始信息: %s\n", person.GetInfo())
 
 	// 获取结构体指针
@@ -263,7 +263,7 @@ func main() {
 
 	// 3. 函数参数传递
 	fmt.Println("\n=== 函数参数传递演示 ===")
-	person2 := Person{Name: "李四", Age: 20}
+	person2 := PointerPerson{Name: "李四", Age: 20}
 	fmt.Printf("调用前: %s\n", person2.GetInfo())
 
 	// 值传递 - 不会修改原始值

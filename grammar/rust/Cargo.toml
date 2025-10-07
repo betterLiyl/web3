@@ -17,3 +17,7 @@ path = "src/3_basic.rs"
 [[bin]]
 name = "4_references"
 path = "src/4_references.rs"
+
+[[bin]]
+name = "5_exercises"
+path = "src/5_exercises.rs"

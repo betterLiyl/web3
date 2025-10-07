@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func main() {
+func main2() {
 	// 设置随机数种子
 	rand.Seed(time.Now().UnixNano())
 	

@@ -17,19 +17,19 @@ const DefaultAge = 18
 
 
 // 结构体定义
-type Person struct {
+type BasicPerson struct {
 	Name string
 	Age  int
 	City string
 }
 
 // 结构体方法
-func (p Person) Introduce() string {
+func (p BasicPerson) Introduce() string {
 	return fmt.Sprintf("我叫%s，今年%d岁，来自%s", p.Name, p.Age, p.City)
 }
 
 // 结构体指针方法
-func (p *Person) SetAge(age int) {
+func (p *BasicPerson) SetAge(age int) {
 	p.Age = age
 }
 
@@ -118,17 +118,17 @@ func structDemo() {
 	fmt.Println("\n=== 结构体演示 ===")
 	
 	// 创建结构体实例
-	person1 := Person{
+	person1 := BasicPerson{
 		Name: "李四",
 		Age:  28,
 		City: "北京",
 	}
 	
 	// 另一种创建方式
-	person2 := Person{"王五", 32, "上海"}
+	person2 := BasicPerson{"王五", 32, "上海"}
 	
 	// 使用new创建
-	person3 := new(Person)
+	person3 := new(BasicPerson)
 	person3.Name = "赵六"
 	person3.Age = 24
 	person3.City = "广州"
@@ -326,7 +326,7 @@ func switchDemo() {
 	fmt.Println()
 }
 
-func main() {
+func main3() {
 	fmt.Println("Go语言基础语法学习")
 	fmt.Println("==================")
 	fmt.Println("test-----------")
