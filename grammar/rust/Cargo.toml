@@ -21,3 +21,7 @@ path = "src/4_references.rs"
 [[bin]]
 name = "5_exercises"
 path = "src/5_exercises.rs"
+
+[[bin]]
+name = "6_advanced_features"
+path = "src/6_advanced_features.rs"

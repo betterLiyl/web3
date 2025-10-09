@@ -234,7 +234,7 @@ func testMapSlice() {
 	fmt.Printf("加倍后: %v\n", doubled)
 }
 
-func main() {
+func main5() {
 	fmt.Println("Go 语言练习题")
 	fmt.Println("请完成上面标有 TODO 的函数实现")
 	fmt.Println("然后运行测试函数查看结果")
