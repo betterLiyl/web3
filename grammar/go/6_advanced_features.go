@@ -438,7 +438,7 @@ func errorHandlingPatterns() {
 
 // ============= 主函数 =============
 
-func main() {
+func main6() {
 	fmt.Println("Go 语言高级特性学习")
 	fmt.Println("==================")
 	
