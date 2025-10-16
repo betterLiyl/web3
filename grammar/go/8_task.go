@@ -124,7 +124,7 @@ func (c *Cache ) Set(Key string,value interface{},ttl time.Duration) {
  
 }
 
-func main() {
+func main8() {
 	fmt.Println("Go 语言学习任务")
 	fmt.Println("==================")
 
