@@ -848,7 +848,7 @@ func (u UserWithAssociations) TableName() string {
 	return "users"
 }
 
-func main() {
+func main11() {
 	fmt.Println("=== ORM框架演示开始 ===")
 
 	// 配置数据库连接

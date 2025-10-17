@@ -16,15 +16,15 @@ import (
 // ============= 命令行计算器伪代码实现 =============
 
 // 栈结构定义
-type Stack struct {
+type Stack2 struct {
 	items []interface{}
 }
 
-func (s *Stack) Push(item interface{}) {
+func (s *Stack2) Push(item interface{}) {
 	s.items = append(s.items, item)
 }
 
-func (s *Stack) Pop() interface{} {
+func (s *Stack2) Pop() interface{} {
 	if len(s.items) == 0 {
 		return nil
 	}
@@ -33,14 +33,14 @@ func (s *Stack) Pop() interface{} {
 	return item
 }
 
-func (s *Stack) Peek() interface{} {
+func (s *Stack2) Peek() interface{} {
 	if len(s.items) == 0 {
 		return nil
 	}
 	return s.items[len(s.items)-1]
 }
 
-func (s *Stack) IsEmpty() bool {
+func (s *Stack2) IsEmpty() bool {
 	return len(s.items) == 0
 }
 
