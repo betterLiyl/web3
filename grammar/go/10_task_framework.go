@@ -1275,7 +1275,7 @@ func (s *UserServiceImpl) DeleteUser(ctx context.Context, userID string) (*User,
 // 9. 主函数和测试框架
 // ============================================================================
 
-func main() {
+func main10() {
 	fmt.Println("=== 微服务框架演示 ===")
 	
 	// 创建服务注册中心
