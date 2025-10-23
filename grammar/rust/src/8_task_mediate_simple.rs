@@ -715,7 +715,7 @@ impl HttpClientBuilder {
         self.retry_config = config;
         self
     }
-    }
+    
 
     // 构建器模式：添加中间件
     // <M: Middleware + 'static>: 泛型约束，M必须实现Middleware trait且具有'static生命周期
@@ -740,7 +740,7 @@ impl HttpClientBuilder {
 
         client // 返回配置完成的客户端
     }
-
+}
 
 // ============================================================================
 // 示例数据结构：用于演示JSON序列化和反序列化

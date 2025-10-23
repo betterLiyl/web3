@@ -29,11 +29,11 @@ impl<T> Queue<T> {
 
 }
 
-struct SkipList<T> {
+struct SkipList<T: Ord> {
     data: Vec<T>,
 }
 
-impl<T> SkipList<T> {
+impl<T: Ord> SkipList<T> {
     pub fn new() -> Self {
         Self { data: Vec::new() }
     }
@@ -48,31 +48,42 @@ impl<T> SkipList<T> {
 
 
 }
-
-struct BloomFilter<T> {
+use std::hash::{Hash, Hasher};
+struct BloomFilter {
     
     data: Vec<bool>,
+    size: usize,
 }
 
-impl<T> BloomFilter<T> {
+impl BloomFilter {
     pub fn new() -> Self {
-        Self { data: Vec::new() }
+        Self { data: Vec::new(), size: 1000 }
     }
-    pub fn hash(&self, item: &T) -> usize {
-        item.hash()
+    pub fn hash(&self, item: &impl Hash) -> usize {
+        let mut hasher = std::collections::hash_map::DefaultHasher::new();
+        item.hash(&mut hasher);
+        hasher.finish() as usize
     }
     
-    pub fn insert(&mut self, item: &T) {
-        let index = self.hash(item);
+    pub fn insert(&mut self, item: &impl Hash) {
+        let index = self.hash(item) % self.size;
         self.data[index] = true;
     }
     
-    pub fn search(&self, item: &T) -> bool {
-        let index = self.hash(item);
+    pub fn search(&self, item: &impl Hash) -> bool {
+        let index = self.hash(item) % self.size;
         self.data[index]
     }
     pub fn init(&mut self, size: usize) {
         self.data = vec![false; size];
     }
 
+}
+
+fn main() {
+    let mut bloom_filter = BloomFilter::new();
+    bloom_filter.init(1000);
+    bloom_filter.insert(&"hello");
+    println!("{}", bloom_filter.search(&"hello"));
+    println!("{}", bloom_filter.search(&"world"));
 }
