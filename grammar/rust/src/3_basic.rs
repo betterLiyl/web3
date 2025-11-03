@@ -1,13 +1,13 @@
 use std::collections::HashMap;
 
 // 全局常量
-const PI: f64 = 3.14159;
+// const PI: f64 = 3.14159;
 const MAX_SIZE: usize = 1000;
 
 
 // 静态变量（全局可变变量，需要unsafe访问）
 static mut GLOBAL_COUNTER: i32 = 0;
-static GLOBAL_VAR: f64 = 3.14;
+// static GLOBAL_VAR: f64 = 3.14;
 // 结构体定义
 #[derive(Debug, Clone)]
 struct Person {
@@ -120,8 +120,8 @@ fn variable_demo() {
     println!("变量遮蔽结果: {}", x);
     
     // 类型注解
-    let typed_var: f64 = 3.14;
-    println!("带类型注解的变量: {}", typed_var);
+    // let typed_var: f64 = 3.14;
+    // println!("带类型注解的变量: {}", typed_var);
     
     // 元组解构
     let tuple = (1, 2.5, "hello");
@@ -143,7 +143,7 @@ fn variable_demo() {
     println!("字符串: '{}' 和 '{}'", string_literal, string_object);
     
     // 常量使用
-    println!("常量: PI={}, MAX_SIZE={}", PI, MAX_SIZE);
+    // println!("常量: PI={}, MAX_SIZE={}", PI, MAX_SIZE);
 }
 
 // 演示函数
