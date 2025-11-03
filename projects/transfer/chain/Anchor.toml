@@ -1,0 +1,36 @@
+# 用途：配置 Anchor 工作空间、工具链、程序地址、默认网络与测试脚本。
+
+[toolchain]
+# 指定项目使用的 Rust 工具链版本（类似 rust-toolchain.toml 的覆盖），确保编译环境一致。
+channel = "1.82.0"
+# 锁定 Anchor CLI 版本，保证命令行为与生成的 IDL 一致。
+anchor_version = "0.31.1"
+
+[features]
+# 启用 IDL 的账户解析（account resolution），会在 IDL 中包含账户依赖解析信息。默认 true。
+resolution = true
+# 是否跳过 Anchor 的 lint 检查。false 表示不跳过、执行 lint。
+skip-lint = false
+
+[programs.localnet]
+# 在 localnet 集群下声明各程序的 Program ID 映射；键为程序名，值为公钥。
+# 注意：此处的 Program ID 必须与程序源码中声明的一致；部署和生成 IDL 会使用它。
+chain = "A41gXaRcvZDSFEf2vLg1wjxKwi3ybbT3f2yvd6ZhBYer"
+
+[programs.devnet]
+chain = "A41gXaRcvZDSFEf2vLg1wjxKwi3ybbT3f2yvd6ZhBYer"
+
+[registry]
+# Anchor 的 IDL/程序注册表服务地址（APR）；通常保持默认即可。
+url = "https://api.apr.dev"
+
+[provider]
+# 默认连接的集群环境，可选：Localnet / Devnet / Mainnet。
+cluster = "Devnet"
+# 用于部署与测试的签名者钱包路径（solana-keygen 生成的 id.json）。
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+# 测试脚本命令；执行 `anchor test` 时将调用该命令运行 TypeScript 测试。
+# 这里使用 ts-mocha，指定 tsconfig，并将超时时间设置为 1,000,000ms。
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"

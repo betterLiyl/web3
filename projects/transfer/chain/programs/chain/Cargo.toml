@@ -1,0 +1,26 @@
+[package]
+name = "chain"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2021"
+rust-version = "1.82"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "chain"
+
+[features]
+default = []
+cpi = ["no-entrypoint"]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+idl-build = ["anchor-lang/idl-build"]
+# 声明 Solana 入口宏使用到的特性名称，以避免 `unexpected_cfgs` 警告。
+custom-heap = []
+custom-heap-default = []
+anchor-debug = []
+custom-panic = []
+
+[dependencies]
+anchor-lang = "0.31.1"
