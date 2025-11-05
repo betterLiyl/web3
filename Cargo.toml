@@ -1,6 +1,7 @@
 [workspace]
 members = [
     "grammar/rust",
-    "projects/transfer/chain/programs/chain"
+    "projects/transfer/chain/programs/chain",
+    "projects/favorites/favorite/programs/favorite"
 ]
 resolver = "2"
