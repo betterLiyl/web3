@@ -2,6 +2,7 @@
 members = [
     "grammar/rust",
     "projects/transfer/chain/programs/chain",
-    "projects/favorites/favorite/programs/favorite"
+    "projects/favorites/favorite/programs/favorite",
+    "projects/vote/voting/programs/voting"
 ]
 resolver = "2"
